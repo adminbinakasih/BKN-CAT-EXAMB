@@ -25,14 +25,14 @@
     },
     "win": {
       "target": [
-        { "target": "nsis", "arch": ["x64"] },
-        { "target": "portable", "arch": ["x64"] }
+        { "target": "nsis", "arch": ["x64"] }
       ],
       "icon": "assets/icon.png",
-      "sign": false,
+      "sign": null,
       "signingHashAlgorithms": null,
       "certificateFile": null,
-      "certificatePassword": null
+      "certificatePassword": null,
+      "verifyUpdateCodeSignature": false
     },
     "nsis": {
       "oneClick": true,
