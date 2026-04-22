@@ -6,41 +6,32 @@
   "scripts": {
     "start": "electron .",
     "build": "electron-builder --win --x64",
-    "build-mac": "electron-builder --mac dmg --universal",
+    "build-mac": "electron-builder --mac dmg --x64",
     "build-portable": "electron-builder --win portable --x64"
   },
   "build": {
     "appId": "id.sch.binakasihnusantara.bkncat",
     "productName": "BKN CAT",
     "copyright": "© 2025 SMA Unggul Binakasih Nusantara",
-    "forceCodeSigning": false,
+    "asar": true,
     "mac": {
       "target": [
-        { "target": "dmg", "arch": ["universal"] }
+        { "target": "dmg", "arch": ["x64"] }
       ],
       "icon": "assets/icon.png",
       "category": "public.app-category.education",
-      "sign": false,
-      "notarize": false
+      "identity": null
     },
     "win": {
       "target": [
         { "target": "nsis", "arch": ["x64"] }
       ],
-      "icon": "assets/icon.png",
-      "sign": null,
-      "signingHashAlgorithms": null,
-      "certificateFile": null,
-      "certificatePassword": null,
-      "verifyUpdateCodeSignature": false
+      "icon": "assets/icon.png"
     },
     "nsis": {
       "oneClick": true,
       "perMachine": false,
       "allowToChangeInstallationDirectory": false,
-      "installerIcon": "assets/icon.png",
-      "uninstallerIcon": "assets/icon.png",
-      "installerHeaderIcon": "assets/icon.png",
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
       "shortcutName": "BKN CAT"
