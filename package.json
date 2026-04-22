@@ -1,0 +1,58 @@
+{
+  "name": "bkn-cat-browser",
+  "version": "1.0.0",
+  "description": "BKN CAT - Secure Browser untuk Ujian CAT Enterprise",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64",
+    "build-mac": "electron-builder --mac dmg --universal",
+    "build-portable": "electron-builder --win portable --x64"
+  },
+  "build": {
+    "appId": "id.sch.binakasihnusantara.bkncat",
+    "productName": "BKN CAT",
+    "copyright": "© 2025 SMA Unggul Binakasih Nusantara",
+    "forceCodeSigning": false,
+    "mac": {
+      "target": [
+        { "target": "dmg", "arch": ["universal"] }
+      ],
+      "icon": "assets/icon.png",
+      "category": "public.app-category.education",
+      "sign": false,
+      "notarize": false
+    },
+    "win": {
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ],
+      "icon": "assets/icon.png",
+      "sign": false,
+      "signingHashAlgorithms": null,
+      "certificateFile": null,
+      "certificatePassword": null
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": false,
+      "installerIcon": "assets/icon.png",
+      "uninstallerIcon": "assets/icon.png",
+      "installerHeaderIcon": "assets/icon.png",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "BKN CAT"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "assets/**"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  }
+}
